@@ -16,7 +16,13 @@ export const GlobalStyle = createGlobalStyle`
     --sucess: #168821;
     --information: #155bcb;
 
-    /* font-size: 62.5%; */
+    --font0: 24px;
+    --font1: 1.375rem;
+    --font2: 1.125rem;
+    --font3: 1rem;
+    --font4: 18px;
+    --font5: 16px;
+    --width: bold;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -83,11 +89,20 @@ font-family: 'Inter', sans-serif;
 }
 main{
     margin-top: 30px;
-    margin-left: 15px;
-    display: flex; 
-    gap: 15px;
-    overflow-y: auto; 
-  
+    display: flex;
+    justify-content: center;
+}
+
+@media(min-width:763px){
+    main{
+        max-width: 1200px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 30px auto 0px auto;
+    padding-bottom: 40px;
+    }
 }
 `
 

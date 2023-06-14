@@ -5,7 +5,7 @@ import img from "../../assets/cart.svg"
 import logo from "../../assets/Mask Group.png"
 import buttonSeach from "../../assets/button-disable.svg"
 
-export const HeaderForm = ({ callback }) => {
+export const HeaderForm = ({ callback, cart, setCart }) => {
     const [inputSearch, setInput] = useState('')
 
     const [isModalOpen, setIsModalOpen] = useState(false)
@@ -23,34 +23,30 @@ export const HeaderForm = ({ callback }) => {
         setIsModalOpen(true)
     }
 
+    const counter = cart.reduce((acumalator, item) => acumalator + item.qty,0)
     return (
         <>
             <HeaderStyled>
-                <div>
+                <div className="container">
+                <div className="container__logo">
                     <div>
                         <img className="logo" src={logo} alt="logo kenzie burguer" />
                     </div>
-                    <div>
-                        <p>0</p>
+                    <div className="cart">
+                        <p>{counter}</p>
                         <img src={img} alt="carrinho de compras" size={35} onClick={handleCartIconClick} />
                     </div>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <div>
-                            <input className="inputText" type="text"
-
-                                placeholder="Buscar..."
-                                onChange={(event) => setInput(event.target.value)}
-                            />
-                        </div>
-                        <div>
-                            <input className="inputButton" type="image" src={buttonSeach} alt="Submit" />
-                        </div>
-                    </div>
+                        <input className="inputText" type="text"
+                        placeholder="Buscar..."
+                        onChange={(event) => setInput(event.target.value)}
+                        />
+                        <input className="inputButton" type="image" src={buttonSeach} alt="Submit" />                      
                 </form>
+                </div>
             </HeaderStyled>
-            {isModalOpen && <Modal isOpen={isModalOpen} onClose={modalClose} />}
+            {isModalOpen && <Modal isOpen={isModalOpen} onClose={modalClose} cart={cart} setCart={setCart} />}
         </>
     )
 }

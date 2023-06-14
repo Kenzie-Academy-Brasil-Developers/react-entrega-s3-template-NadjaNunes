@@ -6,7 +6,8 @@ export const HeaderStyled = styled.header`
     height: 152px;
     background-color: var(--grey-0);
 
-    > div:nth-child(1){
+    .container__logo{
+        font-size: 62.5%;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -17,9 +18,9 @@ export const HeaderStyled = styled.header`
         margin-top: 10px;
         margin-bottom: 15px;
             
-            .logo{
-                width: 10.625rem;
-            }
+        .logo{
+            width: 11.625rem;
+        }
                         
             svg{
                 fill: var(--grey-300);
@@ -41,27 +42,40 @@ export const HeaderStyled = styled.header`
             }
             
         }
+
         form{
             display: flex;
+            position: relative;
             justify-content: center;
-            margin-left: 30px;
-            margin-right: 30px;
+            width: 90%;
+            margin: 0 auto;
         }
+
         .inputText{
             height: 55px;
-            width: 316px;
             border-radius: 10px;
             border: 1px solid var(--grey-100);
-
-            ::placeholder{
-                padding: 7px;
-            }
+            width: 100%;
+            margin: 0 auto;
         }
+
+        input{
+            text-indent: 10px;
+            color: var(--grey-300);
+            font-size: var(--font4);
+        }
+
+        input::placeholder{
+            color: var(--grey-300);
+            font-size: var(--font4);
+        margin: 10px;
+           
+        }
+
         .inputButton{
             display: flex;
-            position: relative;
-            bottom: 48px;
-            left: 256px;
+            position: absolute;
+            inset: 7px 7px 10px auto;
             
         }
 
@@ -70,21 +84,38 @@ export const HeaderStyled = styled.header`
             justify-content: space-between;
             align-items: center;
             align-items: baseline;
-            height: 8.125rem;
+            height: 100px;
 
-            > div:nth-child(1){
-                margin-top: 30px;
-                margin-left: 200px;
-                justify-content: space-between;
+            .container{
+                max-width: 1200px;
+                width: 90%;
+                display: flex;
+                align-items: center;
+                height: 100%;
+                margin: 0 auto;
+                gap: 20px;
             }
-            div > div:nth-child(2){
+
+            .container__logo{
+                margin: 0;
+                justify-content: space-between;
+                width: 70%;
+                margin-bottom: 7px;
+            }
+
+            .cart{
                 position: relative;
             }
 
             form{
-                margin-right: 200px;
+                width: 30%;
+                margin: 0;
             }
 
+
+
         }
+
+
 
 `

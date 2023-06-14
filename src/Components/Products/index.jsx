@@ -1,13 +1,18 @@
 import { api } from "../../services/api"
 import { useEffect, useState } from "react"
 import { HeaderForm } from "../Header"
-import Cards from "../CarProducts"
+import Cards from "../Cards"
 import { RingLoader } from "react-spinners"
+import { UlStyled } from "./styled"
+
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function Feed() {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [search, setSearch] = useState('')
+    const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState('');
+    const [cart, setCart] = useState([]);
 
       useEffect(() => {
         const getProducts = async () => {
@@ -17,7 +22,7 @@ export function Feed() {
                     name_like: search,
                 }
             })
-            
+
           setProducts(response.data)
           } catch (error){
             console.error(error)
@@ -35,9 +40,12 @@ export function Feed() {
       
     return (
       <>
-        <HeaderForm callback={(inputSearch) => setSearch(inputSearch)} />
+        <HeaderForm callback={(inputSearch) => setSearch(inputSearch)} cart={cart} setCart={setCart} />
         <main>
-        {products.map((products) => <Cards key={products.id} {... products}/>)}
+        <ToastContainer/>
+          <UlStyled>
+        {products.map((products) => <Cards key={products.id} products={products} setCart={setCart} cart={cart}/>)}
+          </UlStyled>
         </main>
       </>
     )

@@ -1,10 +1,39 @@
 import { useEffect, useRef, } from "react";
-import { ModalStyled } from "./style";
+import { BackdropStyled} from "./style";
+import Amount from "../Total";
+import { toast } from "react-toastify";
+import { FaTrash } from "react-icons/fa"
+import imgTwo from "../../assets/cartTwo.png"
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, cart, setCart, products }) => {
 
+  const modalRef = useRef(null);
+
+const handleDeleteProduct = (itemID) =>{
+  const existingProduct = cart.find((item) => item.id === itemID)
+  if(existingProduct){
+    if(existingProduct.qty === 1){
+      setCart(cart.filter((item) => item.id !== itemID))
+    }else{
+      const updateProducts =  cart.map((item) => 
+      item.id === itemID
+      ? {...item, qty: item.qty - 1}
+      : item
+      )
+      
+      setCart(updateProducts)
+    }
+    toast.error(`Todos os itens foram removidos do carrinho`, {
+      position: "top-center",})
+  }
     
-    const modalRef = useRef(null);
+}
+
+  const removeAllProducts = ()  => {
+    setCart([])
+    toast.warning("Todos os itens foram removidos do carrinho", {
+      position: "top-center",})
+  }
 
   const handleClose = () => {
     onClose();
@@ -40,17 +69,46 @@ const Modal = ({ isOpen, onClose }) => {
 
   if (isOpen) {
     return (
-      <ModalStyled ref={modalRef}>
-        <div className="modal-content">
-          <header>
-            <button onClick={handleClose}>X</button>
-            <h2>Carrinho de compras</h2>
-          </header>
-          <div>
-            <h2>Carrinho vazio</h2>
+      <BackdropStyled>
+        <div className="container" ref={modalRef}>
+        <header>
+          <h2>Carrinho de compras</h2>
+          <button onClick={handleClose}>X</button>
+        </header>
+          <ul>
+            {
+              cart.map((item) => (
+                <li key={item.id}>
+                <div className="divLi">
+                  <div className="divs">
+                  <div className="divImg">
+                  <img src={item.img} alt="" />
+                  </div>
+                  <div className="divSpanName">
+                  <h2>{item.name}</h2>
+                  <span>{item.qty}x</span>
+                  </div>
+                  </div>
+                  <div className="divImgTrash">
+                  <FaTrash class="trach" onClick={() => handleDeleteProduct(item.id)}></FaTrash>
+                  </div>
+                </div>
+              </li>
+            )
+            )}
+          {cart.length === 0 ? ( 
+        <span className="cart">
+          <img src={imgTwo} alt="" />
+        </span>
+      ) : null}
+          </ul>
+          <Amount cart={cart} />
+          
+          <div className="divRemove">
+            <button onClick={removeAllProducts}>Remover todos</button>
           </div>
-        </div>
-      </ModalStyled>
+      </div>
+      </BackdropStyled>
     );
   }
 
