@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     --information: #155bcb;
 
     --font0: 24px;
-    --font1: 1.375rem;
+    --font1: 22px;
     --font2: 1.125rem;
     --font3: 1rem;
     --font4: 18px;

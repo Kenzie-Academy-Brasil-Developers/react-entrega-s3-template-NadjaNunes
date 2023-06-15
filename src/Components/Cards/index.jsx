@@ -20,7 +20,6 @@ const Cards = ({ products, setCart, cart }) => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        
       });
       setCart([...cart, { ...products, qty: 1 }]);
     }

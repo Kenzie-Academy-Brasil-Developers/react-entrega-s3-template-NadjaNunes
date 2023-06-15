@@ -112,8 +112,6 @@ export const HeaderStyled = styled.header`
                 margin: 0;
             }
 
-
-
         }
 
 

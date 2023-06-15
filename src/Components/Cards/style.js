@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
 export const CardStyled = styled.li`
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 280px;
-    border: 2px solid var(--grey-400);
-    border-radius: 8px;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 280px;
+  border: 2px solid var(--grey-400);
+  border-radius: 8px;
 
   & > div:first-child {
     display: flex;
@@ -41,41 +39,39 @@ export const CardStyled = styled.li`
     cursor: pointer;
   }
 
-  &:hover{
+  &:hover {
     border: 3px solid var(--color-prymary);
     transform: translateZ(0);
     backface-visibility: hidden;
+
+    button {
+      border: 3px solid var(--color-prymary);
+      background-color: var(--color-prymary);
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
   }
 
-  button:hover{
-    border: 3px solid var(--color-prymary);
-    background-color: var(--color-prymary);
-    transform: translateZ(0);
-    backface-visibility: hidden;
-  }
-
-  h2{
-    font-size: var( --font0);
+  h2 {
+    font-size: var(--font0);
     font-weight: var(--width);
   }
 
-  h4{
+  h4 {
     font-size: var(--font5);
     color: var(--grey-300);
   }
 
-  p{
+  p {
     font-size: var(--font4);
     font-weight: var(--width);
     color: var(--color-prymary);
   }
 
   @media (min-width: 768px) {
-
-  & > div:first-child{
-    width: 100%;
-    height: 200px;
+    & > div:first-child {
+      width: 100%;
+      height: 200px;
+    }
   }
-}
-
 `;

@@ -33,6 +33,10 @@ export const BackdropStyled = styled.div`
     background-color: var(--color-prymary);
     color: var( --grey-0);
 
+    h2{
+      font-size: var(--font4);
+    }
+
     button{
       background-color: var(--color-prymary);
       border: 1px solid var(--color-prymary);
@@ -108,7 +112,6 @@ export const BackdropStyled = styled.div`
     .container{
       width: 35%;
   }
-
 
 }
 
