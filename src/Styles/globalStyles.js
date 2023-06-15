@@ -94,6 +94,9 @@ main{
 }
 
 @media(min-width:763px){
+
+    body {
+        overflow-x: hidden}
     main{
         max-width: 1200px;
     width: 90%;
