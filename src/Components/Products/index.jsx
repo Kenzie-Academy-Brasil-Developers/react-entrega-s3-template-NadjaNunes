@@ -4,8 +4,9 @@ import { HeaderForm } from "../Header"
 import Cards from "../Cards"
 import { RingLoader } from "react-spinners"
 import { UlStyled } from "./styled"
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import { LoadingStyled } from "./loading"
 
 export function Feed() {
   const [products, setProducts] = useState([]);
@@ -33,7 +34,11 @@ export function Feed() {
   }, [search])
 
   if (loading) {
-    return <RingLoader color="#27ae60" loading={true} />
+    return (
+      <LoadingStyled>
+        <RingLoader color="#27ae60" loading={true} />
+      </LoadingStyled>
+    );
   }
   return (
     <>
