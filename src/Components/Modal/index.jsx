@@ -3,7 +3,7 @@ import { BackdropStyled } from "./style";
 import Amount from "../Total";
 import { toast } from "react-toastify";
 import { FaTrash } from "react-icons/fa"
-import imgTwo from "../../assets/cartTwo.png"
+import imgTwo from "../../assets/cart.shopping.svg"
 
 const Modal = ({ isOpen, onClose, cart, setCart, products }) => {
 
@@ -24,6 +24,7 @@ const Modal = ({ isOpen, onClose, cart, setCart, products }) => {
       }
       toast.error(`Todos os itens foram removidos do carrinho`, {
         position: "top-center",
+        
       })
     }
   }

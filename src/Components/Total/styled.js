@@ -11,6 +11,6 @@ export const ModalStyled = styled.div`
     }
 
     >h3:nth-child(2){
-        color: var( --grey-300);
+        color: var(--palet-4);
     }
 `

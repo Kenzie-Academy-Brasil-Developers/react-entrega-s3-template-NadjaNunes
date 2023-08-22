@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "../Modal";
 import { HeaderStyled } from "./style";
 import img from "../../assets/cart.svg"
-import logo from "../../assets/Mask Group.png"
+import logo from "../../assets/logo_burguer.png"
 import buttonSeach from "../../assets/button-disable.svg"
 
 export const HeaderForm = ({ callback, cart, setCart }) => {

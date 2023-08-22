@@ -7,6 +7,7 @@ import { UlStyled } from "./styled"
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { LoadingStyled } from "./loading"
+import Animation from "../Animation"
 
 export function Feed() {
   const [products, setProducts] = useState([]);
@@ -36,7 +37,7 @@ export function Feed() {
   if (loading) {
     return (
       <LoadingStyled>
-        <RingLoader color="#27ae60" loading={true} />
+        <RingLoader color="#A64724" loading={true} />
       </LoadingStyled>
     );
   }
@@ -44,10 +45,13 @@ export function Feed() {
     <>
       <HeaderForm callback={(inputSearch) => setSearch(inputSearch)} cart={cart} setCart={setCart} />
       <main>
+        <Animation />
         <ToastContainer />
-        <UlStyled>
-          {products.map((products) => <Cards key={products.id} products={products} setCart={setCart} cart={cart} />)}
-        </UlStyled>
+        <>
+          <UlStyled>
+            {products.map((products) => <Cards key={products.id} products={products} setCart={setCart} cart={cart} />)}
+          </UlStyled>
+        </>
       </main>
     </>
   )

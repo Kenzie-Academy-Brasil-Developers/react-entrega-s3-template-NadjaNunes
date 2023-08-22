@@ -30,12 +30,16 @@ const Cards = ({ products, setCart, cart }) => {
       <div>
         <img src={products.img} alt="imagem do produto" />
       </div>
-      <div>
-        <h2>{products.name}</h2>
-        <h4>{products.category}</h4>
-        <p>R$ {products.price.toFixed(2).replace(".", ",")}</p>
-        <button onClick={handleAdd}>Adicionar</button>
+
+      <div className="box_info">
+        <div>
+          <h2>{products.name}</h2>
+          <h4>{products.category}</h4>
+          <p>R$ {products.price.toFixed(2).replace(".", ",")}</p>
+          <button onClick={handleAdd}>Adicionar</button>
+        </div>
       </div>
+
     </CardStyled>
   );
 };

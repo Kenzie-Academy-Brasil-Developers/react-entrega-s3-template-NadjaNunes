@@ -2,19 +2,19 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 :root{
-    --color-prymary: #27ae60;
-    --color-secondary: #eb5757;
 
     --gray-600: #333333;
     --grey-300: #828282;
     --grey-400: #BDBDBD;
-    --grey-100: #e0e0e0;
+    --grey-100: #efefefde;
     --grey-0: #f5f5f5;
-
-    --negative: #e60000;
-    --warning: #ffcd07;
-    --sucess: #168821;
-    --information: #155bcb;
+    
+    --palet-0:#0D0D0D;
+    --palet-1: #401C14;
+    --palet-2:#A64724;
+    --palet-3:#F27830;
+    --palet-4: #F28D35;
+    --palet-5: #ffdec0;
 
     --font0: 24px;
     --font1: 22px;
@@ -23,6 +23,12 @@ export const GlobalStyle = createGlobalStyle`
     --font4: 18px;
     --font5: 16px;
     --width: bold;
+
+    --1: 11;
+    --2: 20;
+    --3: 16;
+    --4: 9;
+    --5: 8;
 }
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -73,40 +79,38 @@ table {
 	border-spacing: 0;
 }
 
-
 *{ 
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 li{
     list-style: none;
 }
+
 body,html{
 width: 100vw;
 height: 100vh;
 font-family: 'Inter', sans-serif;
 }
-main{
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
+
+button{
+    font-family: 'Inter', sans-serif;
 }
 
-@media(min-width:763px){
-
-    body {
-        overflow-x: hidden}
-    main{
-        max-width: 1200px;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    margin: 30px auto 0px auto;
-    padding-bottom: 40px;
+.Toastify__toast{
+    background-color: var(--palet-5);
+}
+    @media(min-width:763px){
+        main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 30px auto 0px auto;
+        }
     }
-}
+
 `
 
 export default GlobalStyle;
